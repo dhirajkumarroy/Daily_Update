@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Title</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Add a little extra padding for single post pages */
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    article {
+      background: var(--card-bg, #fff);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    body.dark article {
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+    }
+    article h2 {
+      margin-top: 0;
+      font-size: 2.5rem;
+    }
+    article img.post-thumb {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    article p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+   <div class="logo-container">
+    <a href="index.html"> <img src="assets/images/logo2.png" alt="Daily Update Logo" class="blog-logo">
+    </a>
+  </div>
+    <nav><a href="../index.html">Back to Home</a></nav>
+    <button id="theme-toggle">🌙</button>
+  </header>
+
+  <main>
+    <article>
+      <!-- The post content will be dynamically inserted here -->
+      <h2>Getting Started with Java</h2>
+      <img src="assets/images/img.png" alt="Java Placeholder" class="post-thumb">
+      <p><em>Published on 2025-09-01</em></p>
+      <p>Welcome to my first blog post! Here we’ll explore how to set up Java, install JDK 21, and run your first program. This is just a template, but you can replace this text and image with your actual blog content for any new post.</p>
+      <p>You can add more paragraphs, images, code blocks, or lists to create a full blog post here. Just remember to keep your styles consistent with the main blog page!</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2025 Daily_Update</p>
+  </footer>
+
+  <button id="back-to-top" title="Go to top">↑</button>
+
+  <script>
+    // Theme toggle logic (copied from the main page)
+    const themeToggle = document.getElementById("theme-toggle");
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      themeToggle.textContent = "☀️";
+    }
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const isDark = document.body.classList.contains("dark");
+      themeToggle.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+
+    // Back to top button logic (copied from the main page)
+    const backToTopBtn = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+      backToTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+    });
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
